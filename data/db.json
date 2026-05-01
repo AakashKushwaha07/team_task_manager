@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": "usr_67e2e8b28d0aa51b",
+      "name": "Demo Admin",
+      "email": "admin@example.com",
+      "passwordHash": "b2d3d0d99bc1e85089f46adb3419dbd6:2720905acae54dd8001c0823d13e204313bdbe3d462a1b573d2a41d7b508bfd37f7b9c0505f92d5230015b24320891eda05b8701bfe469ef9ecc7790217b4bca",
+      "role": "admin",
+      "createdAt": "2026-04-30T15:05:16.691Z"
+    },
+    {
+      "id": "usr_b491764418a26f06",
+      "name": "Demo Member",
+      "email": "member@example.com",
+      "passwordHash": "c9e80be986d6aee2dcbfa50d5cabfd6d:ebd7d41faf94ce1bb3102264cb28a69f05f8033cdba2eda5d70f96da13517eb619867982ccfbf3e902f75481cba2c482c2e1e8d52cdab337c586d419e40483cb",
+      "role": "member",
+      "createdAt": "2026-04-30T15:05:16.737Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "prj_c51f3fbd63ce144e",
+      "name": "Product Launch",
+      "description": "Coordinate design, API, QA, and deployment work for launch.",
+      "ownerId": "usr_67e2e8b28d0aa51b",
+      "memberIds": [
+        "usr_67e2e8b28d0aa51b",
+        "usr_b491764418a26f06"
+      ],
+      "createdAt": "2026-04-30T15:05:16.737Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "tsk_d5a8e036861d6534",
+      "projectId": "prj_c51f3fbd63ce144e",
+      "title": "Build task dashboard",
+      "description": "Create status cards and overdue summary.",
+      "assigneeId": "usr_b491764418a26f06",
+      "status": "in_progress",
+      "priority": "high",
+      "dueDate": "2026-05-01",
+      "createdBy": "usr_67e2e8b28d0aa51b",
+      "createdAt": "2026-04-30T15:05:16.737Z",
+      "updatedAt": "2026-04-30T15:05:16.737Z"
+    },
+    {
+      "id": "tsk_4f5857b8029bd86a",
+      "projectId": "prj_c51f3fbd63ce144e",
+      "title": "Write deployment notes",
+      "description": "Document Railway variables and start command.",
+      "assigneeId": "usr_67e2e8b28d0aa51b",
+      "status": "todo",
+      "priority": "medium",
+      "dueDate": "2026-04-29",
+      "createdBy": "usr_67e2e8b28d0aa51b",
+      "createdAt": "2026-04-30T15:05:16.737Z",
+      "updatedAt": "2026-04-30T15:05:16.737Z"
+    }
+  ],
+  "sessions": []
+}

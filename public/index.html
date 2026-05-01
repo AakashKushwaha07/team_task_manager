@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Task Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="authView" class="auth-shell">
+      <section class="brand-panel">
+        <div class="brand-mark">TT</div>
+        <h1>Team Task Manager</h1>
+        <p>Plan projects, assign work, and track delivery with admin and member roles.</p>
+        <div class="demo-box">
+          <strong>Demo access</strong>
+          <span>Admin: admin@example.com / Admin@123</span>
+          <span>Member: member@example.com / Member@123</span>
+        </div>
+      </section>
+
+      <section class="auth-card">
+        <div class="tabs" role="tablist">
+          <button class="tab active" id="loginTab" type="button">Login</button>
+          <button class="tab" id="signupTab" type="button">Signup</button>
+        </div>
+
+        <form id="loginForm" class="stack">
+          <label>Email<input name="email" type="email" value="admin@example.com" required /></label>
+          <label>Password<input name="password" type="password" value="Admin@123" required /></label>
+          <button class="primary-btn" type="submit">Login</button>
+        </form>
+
+        <form id="signupForm" class="stack hidden">
+          <label>Name<input name="name" type="text" minlength="2" required /></label>
+          <label>Email<input name="email" type="email" required /></label>
+          <label>Password<input name="password" type="password" minlength="6" required /></label>
+          <label>Role
+            <select name="role">
+              <option value="member">Member</option>
+              <option value="admin">Admin</option>
+            </select>
+          </label>
+          <button class="primary-btn" type="submit">Create account</button>
+        </form>
+
+        <p id="authMessage" class="message" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <main id="appView" class="app-shell hidden">
+      <aside class="sidebar">
+        <div class="brand-row">
+          <div class="brand-mark small">TT</div>
+          <div>
+            <strong>Team Task</strong>
+            <span>Manager</span>
+          </div>
+        </div>
+        <nav>
+          <a class="nav-link active" href="#dashboard">Dashboard</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#tasks">Tasks</a>
+          <a class="nav-link admin-only" href="#team">Team</a>
+        </nav>
+        <button id="logoutBtn" class="ghost-btn" type="button">Logout</button>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p id="roleLabel" class="eyebrow"></p>
+            <h2 id="welcomeTitle">Dashboard</h2>
+          </div>
+          <div class="user-chip" id="userChip"></div>
+        </header>
+
+        <section id="alertBox" class="alert hidden" aria-live="polite"></section>
+
+        <section id="dashboardSection" class="page-section">
+          <div class="stats-grid" id="statsGrid"></div>
+          <div class="board-header">
+            <div>
+              <p class="eyebrow">Live workload</p>
+              <h3>Task board</h3>
+            </div>
+            <select id="projectFilter"></select>
+          </div>
+          <div class="kanban" id="kanban"></div>
+        </section>
+
+        <section id="projectsSection" class="page-section hidden">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Project management</p>
+              <h3>Projects</h3>
+            </div>
+          </div>
+          <form id="projectForm" class="form-grid admin-only">
+            <label>Project name<input name="name" type="text" minlength="3" required /></label>
+            <label>Description<input name="description" type="text" /></label>
+            <label>Team members<select name="memberIds" multiple></select></label>
+            <button class="primary-btn" type="submit">Create project</button>
+          </form>
+          <div id="projectList" class="item-grid"></div>
+        </section>
+
+        <section id="tasksSection" class="page-section hidden">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Task operations</p>
+              <h3>Tasks</h3>
+            </div>
+          </div>
+          <form id="taskForm" class="form-grid admin-only">
+            <label>Title<input name="title" type="text" required /></label>
+            <label>Project<select name="projectId" required></select></label>
+            <label>Assignee<select name="assigneeId" required></select></label>
+            <label>Priority
+              <select name="priority">
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="low">Low</option>
+              </select>
+            </label>
+            <label>Due date<input name="dueDate" type="date" /></label>
+            <label class="wide">Description<textarea name="description" rows="3"></textarea></label>
+            <button class="primary-btn" type="submit">Create task</button>
+          </form>
+          <div id="taskList" class="item-grid"></div>
+        </section>
+
+        <section id="teamSection" class="page-section hidden">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Access control</p>
+              <h3>Team members</h3>
+            </div>
+          </div>
+          <div id="teamList" class="item-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
